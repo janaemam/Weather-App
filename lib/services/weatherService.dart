@@ -8,6 +8,7 @@ class WeatherService{
   final String key = '3572b59d2ee40bce69900c61decde15a';
 
 
+
     Future<Weather> getWeather(String cityName) async{
     var url = Uri.parse('$baseUrl?q=$cityName&appid=$key&units=metric');
     print("data____________________________ }");
