@@ -22,7 +22,7 @@ class DisplayWeather extends State<HomePage>{
     WeatherService weatherService =WeatherService();
     IconService iconService = IconService();
     Weather? weather;
-    String? iconPath;
+    String iconPath='things/lottie/loading.json';
     bool flag = true;
 
     @override
@@ -50,7 +50,7 @@ class DisplayWeather extends State<HomePage>{
   @override
   Widget build(BuildContext context)  {
      getTemp(context);
-     String iconPath =iconService.getIcon(weather?.mainCondition);
+      iconPath = iconService.getIcon(weather?.mainCondition);
 
     return  Scaffold(
         body: SafeArea(
@@ -101,7 +101,7 @@ class DisplayWeather extends State<HomePage>{
                    color: Theme.of(context).colorScheme.primary,
                    ),),
 
-                   Text('${weather?.mainCondition}', style: TextStyle(
+                   Text(weather?.mainCondition??"Loading", style: TextStyle(
                        fontFamily: 'Poppins',
                        fontSize: 20,
                        color: Theme.of(context).colorScheme.primary,
@@ -111,9 +111,9 @@ class DisplayWeather extends State<HomePage>{
                ),
              ],
            ),
-                    Lottie.asset(iconPath),
+                   Lottie.asset(iconPath),
 
-            Text('${weather?.temp}°', style: TextStyle(
+            Text('${weather?.temp ??''}°', style: TextStyle(
              fontFamily: 'Poppins',
              fontSize: 35,
              color: Theme.of(context).colorScheme.primary,
@@ -125,5 +125,6 @@ class DisplayWeather extends State<HomePage>{
      );
 
   }
+
 
 }

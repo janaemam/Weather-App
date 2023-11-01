@@ -3,7 +3,7 @@ class IconService{
 
 
     String getIcon(String? main) {
-      String iconPath='things/lottie/SunAndCloud.json';
+      String iconPath='things/lottie/loading.json';
       switch(main){
         case "Rain"||"Drizzle" :{
           iconPath="things/lottie/Rain.json";
